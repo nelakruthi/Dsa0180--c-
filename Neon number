@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+// Function to calculate the sum of digits
+int sumOfDigits(int n) {
+    int sum = 0;
+    while (n > 0) {
+        sum += n % 10; // Extract the last digit and add to sum
+        n /= 10;       // Remove the last digit
+    }
+    return sum;
+}
+
+// Function to check if a number is a Neon Number
+bool isNeonNumber(int n) {
+    int square = n * n;          // Calculate the square of the number
+    int digitSum = sumOfDigits(square); // Calculate the sum of digits of the square
+    return (digitSum == n);      // Check if the sum equals the original number
+}
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    if (isNeonNumber(num)) {
+        cout << num << " is a Neon Number!" << endl;
+    } else {
+        cout << num << " is not a Neon Number." << endl;
+    }
+
+    return 0;
+}
